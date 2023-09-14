@@ -1,0 +1,72 @@
+[
+    {
+        "model": "foodie.todayspecial",
+        "pk": 1,
+        "fields": {
+            "name": "Steak and Potatoes",
+            "description": "Grilled Steak with Roasted Potatoes",
+            "price": 24.99,
+            "image": "https://example.com/steak_and_potatoes.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 2,
+        "fields": {
+            "name": "Chicken Fajitas",
+            "description": "Sizzling Chicken Fajitas with Peppers and Onions",
+            "price": 17.99,
+            "image": "https://example.com/chicken_fajitas.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 3,
+        "fields": {
+            "name": "Margherita Pizza",
+            "description": "Classic Margherita Pizza with Fresh Basil",
+            "price": 16.99,
+            "image": "https://example.com/margherita_pizza.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 4,
+        "fields": {
+            "name": "Shrimp Scampi Pasta",
+            "description": "Shrimp Scampi Pasta with Garlic and Lemon",
+            "price": 19.99,
+            "image": "https://example.com/shrimp_scampi_pasta.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 5,
+        "fields": {
+            "name": "Veggie Burger",
+            "description": "Vegetarian Veggie Burger with Avocado and Swiss",
+            "price": 12.99,
+            "image": "https://example.com/veggie_burger.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 6,
+        "fields": {
+            "name": "Sushi Combo",
+            "description": "Sushi Combo with a Variety of Rolls",
+            "price": 22.99,
+            "image": "https://example.com/sushi_combo.jpg"
+        }
+    },
+    {
+        "model": "foodie.todayspecial",
+        "pk": 7,
+        "fields": {
+            "name": "Chocolate Milkshake",
+            "description": "Rich Chocolate Milkshake with Whipped Cream",
+            "price": 6.99,
+            "image": "https://example.com/chocolate_milkshake.jpg"
+        }
+    }
+]
