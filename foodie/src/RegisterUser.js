@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { loginPost, registerUserUrl } from "./auth";
+import { registerUserRequest, registerUserUrl } from "./api";
 import Modal from 'react-native-modal';
 
 const RegisterUser = ({ navigation }) => {
@@ -18,13 +18,12 @@ const RegisterUser = ({ navigation }) => {
         toggleModal();
     } else {
         try {
-              const response = await loginPost(registerUserUrl, {
+              const response = await registerUserRequest({
                 "username": username.toLowerCase(),
                 "email": email.toLowerCase(),
                 "password": password,
               });
               // Handle successful registration
-              console.log("[Info] user registration successful", response);
               navigation.navigate('Login');
             } catch (error) {
               // Handle registration error

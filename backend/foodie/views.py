@@ -1,87 +1,96 @@
-from django.shortcuts import render
-
 # Create your views here.
-from rest_framework import status, generics
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, logout
 from .serializers import UserSerializer
-from .models import MenuItem, TodaySpecial
-from .serializers import MenuItemSerializer, TodaySpecialSerializer
-from rest_framework.authtoken.models import Token
+from .models import MenuItem, Order
+from .serializers import MenuItemSerializer, OrderSerializer, PlaceOrderSerializer
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-import json
-from django.views.decorators.csrf import csrf_exempt
-
-# from rest_framework.authtoken.models import Token
 
 
-@permission_classes([AllowAny])
-class UserMenuView(APIView):
-    def get(self, request):
-        if request.user.is_authenticated == False or request.user.is_active == False:
-            return Response("Invalid Credentials", status=status.HTTP_403_FORBIDDEN)
-
-        menu_items = MenuItem.objects.all()
-        menu_serializer = MenuItemSerializer(data=menu_items)
-
-        special_itsm = TodaySpecial.objects.all()
-        special_serializer = TodaySpecialSerializer(data=special_itsm)
-
-        respose_data = {
-            "specials": special_serializer.data,
-            "menu": menu_serializer.data,
-        }
-        return Response(respose_data, status=status.HTTP_200_OK)
-
-
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
-class MenuItemList(generics.ListCreateAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
+def non_delivered_orders(request):
+    uid = request.user.id
+    orders = (
+        Order.objects.filter(status__in=["Pending", "Processing", "Shipped"])
+        .filter(user_id=uid)
+        .prefetch_related("items")
+    )
+    serializer = OrderSerializer(orders, many=True)
+    print("[INFO] orders for user", uid)
+    return Response(serializer.data, status=200)
 
 
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
-class TodaySpecialList(generics.ListCreateAPIView):
-    queryset = TodaySpecial.objects.all()
-    serializer_class = TodaySpecialSerializer
+def user_orders(request):
+    uid = request.user.id
+    orders = Order.objects.filter(user_id=uid).prefetch_related("items")
+    serializer = OrderSerializer(orders, many=True)
+    print("[INFO] orders for user", uid)
+    return Response(serializer.data, status=200)
+
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def place_order(request):
+    request.data["user"] = request.user.id
+    serializer = PlaceOrderSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        print("[INFO] place order", serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def menu_item_list(request):
+    menu_items = MenuItem.objects.all()  # .filter(is_special=False)
+    serializer = MenuItemSerializer(menu_items, many=True)
+    return Response(serializer.data, status=200)
 
 
 @permission_classes([AllowAny])
 class UserRegistrationView(APIView):
     def post(self, request):
         user_data = request.data
+        print("[INFO] registering user", request, request.data)
         serializer = UserSerializer(data=user_data)
         if serializer.is_valid():
             serializer.save()
             serializer_data = serializer.data
-            print(
-                f"[INFO]: user registered successfully. Sending token {serializer_data}"
-            )
+            print("[INFO] register user", serializer_data)
             return Response(
                 {
                     "user": serializer_data,
                 },
                 status=status.HTTP_201_CREATED,
             )
+        print("[ERROR] registration failed", serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@permission_classes([AllowAny])
+class UserLogoutView(APIView):
+    def post(self, request, format=None):
+        logout(request=request)
+        return Response({"User Logged out successfully!"}, status=200)
 
 
 @permission_classes([AllowAny])
 class UserLoginView(APIView):
     # convert user token into user data
     def get(self, request, format=None):
-        if request.user.is_authenticated == False or request.user.is_active == False:
-            return Response("Invalid Credentials", status=status.HTTP_403_FORBIDDEN)
-
         user = UserSerializer(request.user)
 
         return Response(user.data, status=status.HTTP_200_OK)
 
     def post(self, request, format=None):
-        user = User.objects.filter(username=request.data["username"])
         credentials = {
             "username": request.data["username"],
             "password": request.data["password"],
@@ -89,24 +98,8 @@ class UserLoginView(APIView):
         user = authenticate(**credentials)
         if user is not None and user.is_active:
             user_serializer = UserSerializer(user)
+            print("[INFO] user data", user_serializer.data)
             return Response(user_serializer.data, status=status.HTTP_200_OK)
         return Response(
             {"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED
         )
-
-
-@api_view(["GET"])
-@permission_classes([IsAuthenticated])
-def todays_special(request):
-    return Response(TodaySpecialList.serializer_class.data, status=status.HTTP_200_OK)
-    # username = request.data.get("username")
-    # password = request.data.get("password")
-
-    # user = authenticate(request, username=username, password=password)
-    # if user is not None:
-    #     return Response(TodaySpecialList.as_view(), status=status.HTTP_200_OK)
-
-    # return Response(
-    #     {"message": f"[WARN] backend failed to fetch todays special for {username}"},
-    #     status=status.HTTP_400_BAD_REQUEST,
-    # )

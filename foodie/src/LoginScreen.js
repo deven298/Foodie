@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { get, loginUserUrl, loginPost, getValueFor, useAuth } from "./auth";
+import { useAuth } from "./auth";
+import { getUserToken, loginRequest } from "./api";
 import Modal from 'react-native-modal';
 
 const LoginScreen = ({ navigation }) => {
@@ -19,23 +20,22 @@ const LoginScreen = ({ navigation }) => {
         toggleModal();
     } else {
         try {
-            const response = await loginPost(loginUserUrl, {
+            const loginResponse = await loginRequest({
               'username': username.toLowerCase(),
               'password': password
-            })
-            .then((res) => {
-              if (res.ok) {
-                return res.json()
-              } else {
-                throw res.json() 
-              }
-            })
-            .then((json) => {
-              console.log("[Info] data received ", json);
-              setToken(json.token);
-              login(json);
+            }).then((res) => res.json())
+
+            const tokenResponse = await getUserToken({
+              'username': username.toLowerCase(),
+              'password': password
+            }).then((res) => res.json())
+
+            Promise.all([loginResponse, tokenResponse])
+            .then(([user, token]) => {
+              console.log("[Info] user data", user);
+              setToken(token.access);
+              login(user);
               navigation.navigate('Home');
-              return json;
             })
             .catch((error) => {
               console.log("[ERROR] error posting", error);

@@ -1,12 +1,11 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
-from .models import MenuItem, TodaySpecial
-from rest_framework_jwt.settings import api_settings
+from .models import MenuItem, Order
 
 
 class UserSerializer(serializers.ModelSerializer):
-    token = serializers.SerializerMethodField()
+    # token = serializers.SerializerMethodField()
 
     username = serializers.CharField(
         required=True,
@@ -22,7 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("token", "username", "email", "password")
+        fields = ("username", "email", "password")
 
     def create(self, validated_data):
         password = validated_data.pop("password", None)
@@ -32,13 +31,6 @@ class UserSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-    def get_token(self, obj):
-        jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-        jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-        payload = jwt_payload_handler(obj)
-        token = jwt_encode_handler(payload)
-        return token
-
 
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -46,7 +38,15 @@ class MenuItemSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class TodaySpecialSerializer(serializers.ModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
+    items = MenuItemSerializer(many=True, read_only=True)
+
     class Meta:
-        model = TodaySpecial
+        model = Order
+        fields = ("id", "total_price", "order_date", "status", "user", "items")
+
+
+class PlaceOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
         fields = "__all__"

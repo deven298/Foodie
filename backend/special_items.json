@@ -1,72 +1,79 @@
 [
     {
         "model": "foodie.todayspecial",
-        "pk": 1,
+        "pk": 31,
         "fields": {
             "name": "Steak and Potatoes",
             "description": "Grilled Steak with Roasted Potatoes",
             "price": 24.99,
-            "image": "https://example.com/steak_and_potatoes.jpg"
+            "image": "https://example.com/steak_and_potatoes.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 2,
+        "pk": 32,
         "fields": {
             "name": "Chicken Fajitas",
             "description": "Sizzling Chicken Fajitas with Peppers and Onions",
             "price": 17.99,
-            "image": "https://example.com/chicken_fajitas.jpg"
+            "image": "https://example.com/chicken_fajitas.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 3,
+        "pk": 33,
         "fields": {
             "name": "Margherita Pizza",
             "description": "Classic Margherita Pizza with Fresh Basil",
             "price": 16.99,
-            "image": "https://example.com/margherita_pizza.jpg"
+            "image": "https://example.com/margherita_pizza.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 4,
+        "pk": 34,
         "fields": {
             "name": "Shrimp Scampi Pasta",
             "description": "Shrimp Scampi Pasta with Garlic and Lemon",
             "price": 19.99,
-            "image": "https://example.com/shrimp_scampi_pasta.jpg"
+            "image": "https://example.com/shrimp_scampi_pasta.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 5,
+        "pk": 35,
         "fields": {
             "name": "Veggie Burger",
             "description": "Vegetarian Veggie Burger with Avocado and Swiss",
             "price": 12.99,
-            "image": "https://example.com/veggie_burger.jpg"
+            "image": "https://example.com/veggie_burger.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 6,
+        "pk": 36,
         "fields": {
             "name": "Sushi Combo",
             "description": "Sushi Combo with a Variety of Rolls",
             "price": 22.99,
-            "image": "https://example.com/sushi_combo.jpg"
+            "image": "https://example.com/sushi_combo.jpg",
+            "is_special": true
         }
     },
     {
         "model": "foodie.todayspecial",
-        "pk": 7,
+        "pk": 37,
         "fields": {
             "name": "Chocolate Milkshake",
             "description": "Rich Chocolate Milkshake with Whipped Cream",
             "price": 6.99,
-            "image": "https://example.com/chocolate_milkshake.jpg"
+            "image": "https://example.com/chocolate_milkshake.jpg",
+            "is_special": true
         }
     }
 ]

@@ -6,7 +6,8 @@
             "name": "Italian Pizza",
             "description": "Italian Pizza with Onion, Tomatoes, Mushroom, Basil",
             "price": 19.99,
-            "image": "https://assets.wfcdn.com/im/60637878/resize-h445%5Ecompr-r85/2410/241085286/Pizza+Margherita+On+Canvas+Print.jpg"
+            "image": "https://assets.wfcdn.com/im/60637878/resize-h445%5Ecompr-r85/2410/241085286/Pizza+Margherita+On+Canvas+Print.jpg",
+            "is_special": false
         }
     },
     {
@@ -16,7 +17,8 @@
             "name": "Spaghetti Carbonara",
             "description": "Classic Spaghetti Carbonara with Bacon and Cheese",
             "price": 15.99,
-            "image": "https://www.eatwell101.com/wp-content/uploads/2020/02/Spaghetti-Carbonara-recipe.jpg"
+            "image": "https://www.eatwell101.com/wp-content/uploads/2020/02/Spaghetti-Carbonara-recipe.jpg",
+            "is_special": false
         }
     },
     {
@@ -26,7 +28,8 @@
             "name": "Sushi Platter",
             "description": "Assorted Sushi Platter with Nigiri and Rolls",
             "price": 24.99,
-            "image": "https://images.pexels.com/photos/6163985/pexels-photo-6163985.jpeg"
+            "image": "https://images.pexels.com/photos/6163985/pexels-photo-6163985.jpeg",
+            "is_special": false
         }
     },
     {
@@ -36,7 +39,8 @@
             "name": "Burger Deluxe",
             "description": "Classic Burger with Lettuce, Tomato, Cheese, and Special Sauce",
             "price": 12.99,
-            "image": "https://www.wellplated.com/wp-content/uploads/2020/05/Best-Burger-Recipe-600x815.jpg"
+            "image": "https://www.wellplated.com/wp-content/uploads/2020/05/Best-Burger-Recipe-600x815.jpg",
+            "is_special": false
         }
     },
     {
@@ -46,7 +50,8 @@
             "name": "Margarita Cocktail",
             "description": "Refreshing Margarita Cocktail with Lime and Salt",
             "price": 8.99,
-            "image": "https://www.liquor.com/thmb/g1-jrOrktwWaj5MybAh3x5GTYt4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Margarita-720x720-primary-295-294e9fc2f008422abbbed0b47089df46.jpg"
+            "image": "https://www.liquor.com/thmb/g1-jrOrktwWaj5MybAh3x5GTYt4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Margarita-720x720-primary-295-294e9fc2f008422abbbed0b47089df46.jpg",
+            "is_special": false
         }
     },
     {
@@ -56,7 +61,8 @@
             "name": "Chicken Alfredo",
             "description": "Creamy Chicken Alfredo Pasta with Garlic and Parmesan",
             "price": 18.99,
-            "image": "https://www.recipetineats.com/wp-content/uploads/2019/05/Chicken-Alfredo_1-4-500x500.jpg"
+            "image": "https://www.recipetineats.com/wp-content/uploads/2019/05/Chicken-Alfredo_1-4-500x500.jpg",
+            "is_special": false
         }
     },
     {
@@ -66,7 +72,8 @@
             "name": "Vegetable Stir-Fry",
             "description": "Healthy Vegetable Stir-Fry with Soy Sauce",
             "price": 14.99,
-            "image": "https://www.eatwell101.com/wp-content/uploads/2021/06/Vegetable-Stir-Fry-Recipe-3.jpg"
+            "image": "https://www.eatwell101.com/wp-content/uploads/2021/06/Vegetable-Stir-Fry-Recipe-3.jpg",
+            "is_special": false
         }
     },
     {
@@ -76,7 +83,8 @@
             "name": "Cheeseboard",
             "description": "Artisanal Cheeseboard with a Variety of Cheeses and Fruits",
             "price": 21.99,
-            "image": "https://www.acouplecooks.com/wp-content/uploads/2021/11/Cheese-Board-028.jpg"
+            "image": "https://www.acouplecooks.com/wp-content/uploads/2021/11/Cheese-Board-028.jpg",
+            "is_special": false
         }
     },
     {
@@ -86,7 +94,8 @@
             "name": "Chocolate Cake",
             "description": "Decadent Chocolate Cake with Chocolate Ganache",
             "price": 9.99,
-            "image": "https://www.handletheheat.com/wp-content/uploads/2018/03/Best-Chocolate-Cake-SQUARE.jpg"
+            "image": "https://www.handletheheat.com/wp-content/uploads/2018/03/Best-Chocolate-Cake-SQUARE.jpg",
+            "is_special": false
         }
     },
     {
@@ -96,7 +105,8 @@
             "name": "Seafood Paella",
             "description": "Spanish Seafood Paella with Saffron Rice and Shrimp",
             "price": 22.99,
-            "image": "https://www.jessicagavin.com/wp-content/uploads/2019/02/seafood-paella-recipe-1200.jpg"
+            "image": "https://www.jessicagavin.com/wp-content/uploads/2019/02/seafood-paella-recipe-1200.jpg",
+            "is_special": false
         }
     },
     {
@@ -106,7 +116,8 @@
             "name": "Taco Platter",
             "description": "Taco Platter with a Variety of Toppings",
             "price": 16.99,
-            "image": "https://www.cookingclassy.com/wp-content/uploads/2020/05/tacos-13.jpg"
+            "image": "https://www.cookingclassy.com/wp-content/uploads/2020/05/tacos-13.jpg",
+            "is_special": false
         }
     },
     {
@@ -116,7 +127,8 @@
             "name": "Greek Salad",
             "description": "Fresh Greek Salad with Cucumber, Tomato, and Feta",
             "price": 10.99,
-            "image": "https://cookieandkate.com/images/2021/06/greek-salad-recipe.jpg"
+            "image": "https://cookieandkate.com/images/2021/06/greek-salad-recipe.jpg",
+            "is_special": false
         }
     },
     {
@@ -126,7 +138,8 @@
             "name": "Pancake Stack",
             "description": "Fluffy Pancake Stack with Maple Syrup",
             "price": 7.99,
-            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/pancake-stack.jpg"
+            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/pancake-stack.jpg",
+            "is_special": false
         }
     },
     {
@@ -136,7 +149,8 @@
             "name": "Sushi Rolls",
             "description": "Assorted Sushi Rolls with Fresh Fish and Avocado",
             "price": 20.99,
-            "image": "https://www.jessicagavin.com/wp-content/uploads/2019/02/sushi-rolls-recipe-1200.jpg"
+            "image": "https://www.jessicagavin.com/wp-content/uploads/2019/02/sushi-rolls-recipe-1200.jpg",
+            "is_special": false
         }
     },
     {
@@ -146,7 +160,8 @@
             "name": "Chicken Tenders",
             "description": "Crispy Chicken Tenders with Honey Mustard Sauce",
             "price": 13.99,
-            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/02/chicken-tenders-9.jpg"
+            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/02/chicken-tenders-9.jpg",
+            "is_special": false
         }
     },
     {
@@ -156,7 +171,8 @@
             "name": "Fruit Smoothie",
             "description": "Refreshing Fruit Smoothie with Mixed Berries and Banana",
             "price": 6.99,
-            "image": "https://cookieandkate.com/images/2020/04/fruit-smoothie-recipe.jpg"
+            "image": "https://cookieandkate.com/images/2020/04/fruit-smoothie-recipe.jpg",
+            "is_special": false
         }
     },
     {
@@ -166,7 +182,8 @@
             "name": "Beef Steak",
             "description": "Grilled Beef Steak with Garlic Butter",
             "price": 26.99,
-            "image": "https://www.jessicagavin.com/wp-content/uploads/2020/02/ribeye-steak-recipe-9.jpg"
+            "image": "https://www.jessicagavin.com/wp-content/uploads/2020/02/ribeye-steak-recipe-9.jpg",
+            "is_special": false
         }
     },
     {
@@ -176,7 +193,8 @@
             "name": "Caesar Salad",
             "description": "Classic Caesar Salad with Croutons and Caesar Dressing",
             "price": 11.99,
-            "image": "https://cookieandkate.com/images/2020/05/caesar-salad-recipe-2.jpg"
+            "image": "https://cookieandkate.com/images/2020/05/caesar-salad-recipe-2.jpg",
+            "is_special": false
         }
     },
     {
@@ -186,7 +204,8 @@
             "name": "Mango Sorbet",
             "description": "Tropical Mango Sorbet with Fresh Mango Puree",
             "price": 5.99,
-            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/mango-sorbet-4.jpg"
+            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/mango-sorbet-4.jpg",
+            "is_special": false
         }
     },
     {
@@ -196,7 +215,8 @@
             "name": "Vegetable Curry",
             "description": "Spicy Vegetable Curry with Basmati Rice",
             "price": 17.99,
-            "image": "https://cookieandkate.com/images/2019/04/vegetable-curry-recipe-2.jpg"
+            "image": "https://cookieandkate.com/images/2019/04/vegetable-curry-recipe-2.jpg",
+            "is_special": false
         }
     },
     {
@@ -206,7 +226,8 @@
             "name": "Eggplant Parmesan",
             "description": "Homemade Eggplant Parmesan with Marinara Sauce",
             "price": 14.99,
-            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/10/eggplant-parmesan-13.jpg"
+            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/10/eggplant-parmesan-13.jpg",
+            "is_special": false
         }
     },
     {
@@ -216,7 +237,8 @@
             "name": "Avocado Toast",
             "description": "Avocado Toast with Poached Eggs and Everything Bagel Seasoning",
             "price": 9.99,
-            "image": "https://cookieandkate.com/images/2019/03/avocado-toast-recipe-5.jpg"
+            "image": "https://cookieandkate.com/images/2019/03/avocado-toast-recipe-5.jpg",
+            "is_special": false
         }
     },
     {
@@ -226,7 +248,8 @@
             "name": "Beet Salad",
             "description": "Healthy Beet Salad with Goat Cheese and Walnuts",
             "price": 12.99,
-            "image": "https://cookieandkate.com/images/2019/05/beet-salad-recipe-2.jpg"
+            "image": "https://cookieandkate.com/images/2019/05/beet-salad-recipe-2.jpg",
+            "is_special": false
         }
     },
     {
@@ -236,7 +259,8 @@
             "name": "Blueberry Pancakes",
             "description": "Fluffy Blueberry Pancakes with Maple Syrup",
             "price": 8.99,
-            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/blueberry-pancakes-3.jpg"
+            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/blueberry-pancakes-3.jpg",
+            "is_special": false
         }
     },
     {
@@ -246,7 +270,8 @@
             "name": "Shrimp Scampi",
             "description": "Garlic Shrimp Scampi with Linguini Pasta",
             "price": 19.99,
-            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/10/shrimp-scampi-14.jpg"
+            "image": "https://www.cookingclassy.com/wp-content/uploads/2019/10/shrimp-scampi-14.jpg",
+            "is_special": false
         }
     },
     {
@@ -256,7 +281,8 @@
             "name": "Caprese Salad",
             "description": "Fresh Caprese Salad with Tomato, Mozzarella, and Basil",
             "price": 10.99,
-            "image": "https://cookieandkate.com/images/2018/09/caprese-salad-recipe.jpg"
+            "image": "https://cookieandkate.com/images/2018/09/caprese-salad-recipe.jpg",
+            "is_special": false
         }
     },
     {
@@ -266,7 +292,8 @@
             "name": "Lemon Sorbet",
             "description": "Zesty Lemon Sorbet with Fresh Lemon Zest",
             "price": 5.99,
-            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/lemon-sorbet-3.jpg"
+            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/lemon-sorbet-3.jpg",
+            "is_special": false
         }
     },
     {
@@ -276,7 +303,8 @@
             "name": "Tofu Stir-Fry",
             "description": "Tofu Stir-Fry with Mixed Vegetables and Soy Ginger Sauce",
             "price": 13.99,
-            "image": "https://cookieandkate.com/images/2019/05/tofu-stir-fry-recipe-3.jpg"
+            "image": "https://cookieandkate.com/images/2019/05/tofu-stir-fry-recipe-3.jpg",
+            "is_special": false
         }
     },
     {
@@ -286,7 +314,8 @@
             "name": "Fruit Salad",
             "description": "Colorful Fruit Salad with Fresh Fruit Medley",
             "price": 9.99,
-            "image": "https://cookieandkate.com/images/2019/06/fruit-salad-recipe.jpg"
+            "image": "https://cookieandkate.com/images/2019/06/fruit-salad-recipe.jpg",
+            "is_special": false
         }
     },
     {
@@ -296,7 +325,85 @@
             "name": "Chocolate Brownie",
             "description": "Rich Chocolate Brownie with a Fudge Center",
             "price": 6.99,
-            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/chocolate-brownie-3.jpg"
+            "image": "https://www.liveeatlearn.com/wp-content/uploads/2019/04/chocolate-brownie-3.jpg",
+            "is_special": false
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 31,
+        "fields": {
+            "name": "Steak and Potatoes",
+            "description": "Grilled Steak with Roasted Potatoes",
+            "price": 24.99,
+            "image": "https://example.com/steak_and_potatoes.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 32,
+        "fields": {
+            "name": "Chicken Fajitas",
+            "description": "Sizzling Chicken Fajitas with Peppers and Onions",
+            "price": 17.99,
+            "image": "https://example.com/chicken_fajitas.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 33,
+        "fields": {
+            "name": "Margherita Pizza",
+            "description": "Classic Margherita Pizza with Fresh Basil",
+            "price": 16.99,
+            "image": "https://example.com/margherita_pizza.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 34,
+        "fields": {
+            "name": "Shrimp Scampi Pasta",
+            "description": "Shrimp Scampi Pasta with Garlic and Lemon",
+            "price": 19.99,
+            "image": "https://example.com/shrimp_scampi_pasta.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 35,
+        "fields": {
+            "name": "Veggie Burger",
+            "description": "Vegetarian Veggie Burger with Avocado and Swiss",
+            "price": 12.99,
+            "image": "https://example.com/veggie_burger.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 36,
+        "fields": {
+            "name": "Sushi Combo",
+            "description": "Sushi Combo with a Variety of Rolls",
+            "price": 22.99,
+            "image": "https://example.com/sushi_combo.jpg",
+            "is_special": true
+        }
+    },
+    {
+        "model": "foodie.menuitem",
+        "pk": 37,
+        "fields": {
+            "name": "Chocolate Milkshake",
+            "description": "Rich Chocolate Milkshake with Whipped Cream",
+            "price": 6.99,
+            "image": "https://example.com/chocolate_milkshake.jpg",
+            "is_special": true
         }
     }
 ]

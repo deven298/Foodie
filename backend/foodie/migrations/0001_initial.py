@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ("description", models.TextField()),
                 ("price", models.DecimalField(decimal_places=2, max_digits=10)),
                 ("image", models.URLField()),
+                ("is_special", models.BooleanField()),
             ],
         ),
         migrations.CreateModel(

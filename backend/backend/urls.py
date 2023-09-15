@@ -25,15 +25,23 @@ from rest_framework_simplejwt.views import (
 from foodie.views import (
     UserRegistrationView,
     UserLoginView,
-    UserMenuView,
+    menu_item_list,
+    UserLogoutView,
+    place_order,
+    user_orders,
+    non_delivered_orders,
 )
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("foodie/register/", UserRegistrationView.as_view(), name="register"),
     path("foodie/login/", UserLoginView.as_view(), name="login"),
-    path("foodie/menu/", UserMenuView.as_view(), name="menu"),
+    path("foodie/logout/", UserLogoutView.as_view(), name="logout"),
+    path("foodie/menu/", menu_item_list, name="menu"),
     path("foodie/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("foodie/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("foodie/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
+    path("foodie/order/", place_order, name="order"),
+    path("foodie/orders/", user_orders, name="orders"),
+    path("foodie/orders/inprogress", non_delivered_orders, name="orders_in_progress"),
 ]
