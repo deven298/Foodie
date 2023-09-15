@@ -4,6 +4,10 @@ prettier:
 	black backend/
 	cd foodie && yarn format:write
 
+build_project:
+	cd backend && pip install -r requirements.txt
+	cd foodie && yarn
+
 build_backend_migrations:
 	black backend/
 	cd backend && python manage.py makemigrations && python manage.py migrate
