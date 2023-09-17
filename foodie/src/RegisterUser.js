@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { registerUserRequest, registerUserUrl } from "./api";
+import { registerUserRequest } from "./api";
 import Modal from 'react-native-modal';
 
 const RegisterUser = ({ navigation }) => {
@@ -23,10 +23,8 @@ const RegisterUser = ({ navigation }) => {
                 "email": email.toLowerCase(),
                 "password": password,
               });
-              // Handle successful registration
               navigation.navigate('Login');
             } catch (error) {
-              // Handle registration error
               console.log("[Error] user registration failed due to ", error);
             }
     }
@@ -51,7 +49,7 @@ const RegisterUser = ({ navigation }) => {
         secureTextEntry
         onChangeText={setPassword}
       />
-      <TouchableOpacity // Use TouchableOpacity for custom button
+      <TouchableOpacity
         style={styles.button}
         onPress={handleRegistration}
       >
@@ -92,7 +90,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     button: {
-        backgroundColor: 'orange', // Button background color is orange
+        backgroundColor: 'orange',
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 8,
@@ -101,7 +99,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: 'white', // Button text color is white
+        color: 'white',
     },
     modalContent: {
         backgroundColor: "white",

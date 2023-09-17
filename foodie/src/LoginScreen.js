@@ -9,7 +9,7 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const { isLoggedIn, user, login, logout, setIsLoggedIn, setToken } = useAuth();
+  const { login, setToken } = useAuth();
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
@@ -43,7 +43,6 @@ const LoginScreen = ({ navigation }) => {
             });
           } catch (error) {
             toggleModal();
-            // Handle login error
             console.log("[Error] user log in failed with", error);
           }
     }
@@ -63,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry
         onChangeText={setPassword}
       />
-      <TouchableOpacity // Use TouchableOpacity for custom button
+      <TouchableOpacity
         style={styles.button}
         onPress={handleLogin}
       >
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     button: {
-        backgroundColor: 'orange', // Button background color is orange
+        backgroundColor: 'orange',
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 8,
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: 'white', // Button text color is white
+        color: 'white',
     },
     modalContent: {
         backgroundColor: "white",

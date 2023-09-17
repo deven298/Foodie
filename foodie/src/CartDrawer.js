@@ -38,13 +38,13 @@ const CartDrawer = ({ cart, onClose, placeOrder }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white', // Adjust the background color
+    backgroundColor: 'white',
     padding: 16,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 16, // Adjust the spacing
+    marginBottom: 16,
   },
   cartItem: {
     flexDirection: 'row',
@@ -55,30 +55,30 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   cartItemName: {
-    fontSize: 18, // Adjust the font size
+    fontSize: 18,
   },
   cartItemPrice: {
-    fontSize: 16, // Adjust the font size
+    fontSize: 16,
     color: 'gray',
   },
   totalCost: {
     fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
-    marginTop: 16, // Adjust the spacing
+    marginTop: 16,
   },
   placeOrderButton: {
     alignSelf: 'center',
-    marginTop: 24, // Adjust the spacing
-    paddingVertical: 12, // Adjust the padding
-    paddingHorizontal: 24, // Adjust the padding
-    backgroundColor: 'green', // Adjust the button color
-    borderRadius: 8, // Adjust the border radius
+    marginTop: 24,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    backgroundColor: 'green',
+    borderRadius: 8,
   },
   placeOrderButtonText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white', // Adjust the text color
+    color: 'white',
   },
   backButton: {
     padding: 10,

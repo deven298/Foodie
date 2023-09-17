@@ -27,9 +27,9 @@ export const fetchMenuItems = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      return data; // Return the data
+      return data;
     } else {
-      throw await response.json(); // Throw the error response as an object
+      throw await response.json();
     }
   } catch (error) {
     throw error;
@@ -129,9 +129,9 @@ export const getOrders = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      return data; // Return the data
+      return data;
     } else {
-      throw await response.json(); // Throw the error response as an object
+      throw await response.json();
     }
   } catch (error) {
     throw error;

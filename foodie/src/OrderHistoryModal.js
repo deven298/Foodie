@@ -111,19 +111,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
       orderDate: {
-        fontSize: 12, // Small font size for date
+        fontSize: 12,
         fontWeight: 'bold',
       },
       orderStatus: {
-        fontSize: 12, // Small font size for status
+        fontSize: 12,
         fontWeight: 'bold',
-        color: 'green', // Customize the color based on status
+        color: 'green',
       },
       menuItemsContainer: {
         flexDirection: 'row',
       },
       menuItemText: {
-        fontSize: 14, // Font size for menu items
+        fontSize: 14,
         marginRight: 10,
       },
       closeButton: {

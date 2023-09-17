@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { fetchMenuItems, logoutPost, placeOrder, getOrders, inprogressOrders } from './api';
+import { fetchMenuItems, logoutPost, placeOrder, getOrders } from './api';
 import { useAuth } from './auth';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { shuffleArray } from './utils';
@@ -253,19 +253,19 @@ const styles = StyleSheet.create({
   },
   cartBadge: {
     position: 'absolute',
-    top: -5, // Adjust the top position to align the badge properly
-    right: -5, // Adjust the right position to align the badge properly
-    backgroundColor: 'red', // Customize the badge background color
-    borderRadius: 12, // Make the badge round
+    top: -5,
+    right: -5,
+    backgroundColor: 'red',
+    borderRadius: 12,
     paddingHorizontal: 6,
   },
   cartBadgeText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 12, // Customize the badge text size
+    fontSize: 12,
   },
   ordersIcon: {
-    marginLeft: 16, // Adjust the margin as needed
+    marginLeft: 16,
   },
   });
   

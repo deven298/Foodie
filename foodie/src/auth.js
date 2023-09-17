@@ -5,10 +5,6 @@ import * as SecureStore from 'expo-secure-store';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authState, setAuthState] = useState({
-    token: null,
-    authenticated: null,
-  });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -17,13 +13,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   const login = (userData) => {
-    // Implement user login logic here and set the user object.
     setUser(userData);
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    // Implement user logout logic here and reset the user object.
     setUser(null);
     setIsLoggedIn(false);
   };

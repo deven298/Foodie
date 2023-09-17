@@ -12,11 +12,7 @@ const Stack = createStackNavigator();
 // const Switch = createSwitchNavigator();
 
   const Navigation = () => {
-    const { isLoggedIn, setIsLoggedIn } = useAuth();
-
-    const handleLogIn = (isLoggedIn) => {
-        setIsLoggedIn(isLoggedIn);
-    };
+    const { isLoggedIn } = useAuth();
   
     return (
       <NavigationContainer>

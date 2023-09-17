@@ -3,12 +3,10 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const LandingScreen = ({ navigation }) => {
   const handleSignup = () => {
-    // Navigate to the signup screen
     navigation.navigate('Signup');
   };
 
   const handleLogin = () => {
-    // Navigate to the login screen
     navigation.navigate('Login');
   };
 
@@ -35,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white', // Background color is white
+    backgroundColor: 'white',
   },
   logo: {
     width: 200,
@@ -45,16 +43,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: 'orange', // Title color is orange
+    color: 'orange',
     marginTop: 20,
   },
   subtitle: {
     fontSize: 18,
-    color: 'orange', // Subtitle color is orange
+    color: 'orange',
     marginVertical: 10,
   },
   button: {
-    backgroundColor: 'orange', // Button background color is orange
+    backgroundColor: 'orange',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,
@@ -63,7 +61,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white', // Button text color is white
+    color: 'white',
   },
 });
 

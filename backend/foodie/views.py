@@ -8,7 +8,6 @@ from .serializers import UserSerializer
 from .models import MenuItem, Order
 from .serializers import MenuItemSerializer, OrderSerializer, PlaceOrderSerializer
 from rest_framework.views import APIView
-from django.contrib.auth.models import User
 
 
 @api_view(["GET"])
@@ -84,7 +83,6 @@ class UserLogoutView(APIView):
 
 @permission_classes([AllowAny])
 class UserLoginView(APIView):
-    # convert user token into user data
     def get(self, request, format=None):
         user = UserSerializer(request.user)
 
