@@ -6,7 +6,12 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth import authenticate, logout
 from .serializers import UserSerializer
 from .models import MenuItem, Order
-from .serializers import MenuItemSerializer, OrderSerializer, PlaceOrderSerializer
+from .serializers import (
+    MenuItemSerializer,
+    OrderSerializer,
+    PlaceOrderSerializer,
+    ReviewOrderSerializer,
+)
 from rest_framework.views import APIView
 
 
@@ -32,6 +37,27 @@ def user_orders(request):
     serializer = OrderSerializer(orders, many=True)
     print("[INFO] orders for user", uid)
     return Response(serializer.data, status=200)
+
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+def user_order_review(request):
+    uid = request.user.id
+    order_id = request.data.pop("order_id")
+    request.data["user"] = uid
+    print(f"[INFO] user {uid} reviewing order {order_id} with {request.data}")
+    serializer = ReviewOrderSerializer(data=request.data)
+
+    try:
+        order = Order.objects.get(user_id=uid, id=order_id)
+    except Order.DoesNotExist:
+        return Response({"error": "Order not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    if serializer.is_valid():
+        serializer.save()
+        order.reviews.add(serializer.instance)
+        # print("[INFO] review order", serializer.data, order)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(["POST"])

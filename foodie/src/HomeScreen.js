@@ -15,7 +15,6 @@ import { shuffleArray } from './utils';
 import { FontAwesome5 } from '@expo/vector-icons';
 import UserInfoModal from './UserInfoModal';
 import CartDrawer from './CartDrawer';
-import OrderHistoryModal from './OrderHistoryModal';
 
 const HomeScreen = ({ navigation }) => {
   const [menuItems, setMenuItems] = useState([]);
@@ -29,7 +28,6 @@ const HomeScreen = ({ navigation }) => {
 
   const [userInfoVisible, setUserInfoVisible] = useState(false);
 
-  const [orderHistoryVisible, setOrderHistoryVisible] = useState(false);
   const [orders, setOrders] = useState([]);
 
   const toggleCart = () => {
@@ -40,8 +38,8 @@ const HomeScreen = ({ navigation }) => {
     setCart({});
   }
 
-  const toggleOrderHistory = () => {
-    setOrderHistoryVisible(!orderHistoryVisible);
+  const showOrderHistory = () => {
+    navigation.navigate('Orders', { orders });
   };
 
   const toggleUserInfo = () => {
@@ -156,7 +154,7 @@ const HomeScreen = ({ navigation }) => {
           <Image source={require('../assets/user.png')} style={{ width: 24, height: 24, tintColor: 'black' }} />
         </TouchableOpacity>
         <Text style={styles.title}>Menu</Text>
-        <TouchableOpacity onPress={toggleOrderHistory} style={styles.ordersIcon}>
+        <TouchableOpacity onPress={showOrderHistory} style={styles.ordersIcon}>
           <FontAwesome5 name="list" size={24} color="black" />
         </TouchableOpacity>
       </View>
@@ -204,7 +202,6 @@ const HomeScreen = ({ navigation }) => {
         onClose={toggleUserInfo}
         onLogout={handleLogout}
       />
-      {orderHistoryVisible && <OrderHistoryModal isVisible={orderHistoryVisible} orders={orders} onClose={toggleOrderHistory} />}
     </SafeAreaView>
     );
 };

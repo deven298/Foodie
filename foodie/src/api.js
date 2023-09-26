@@ -9,6 +9,7 @@ export const logoutUserUrl = `${apiUrl}foodie/logout/`;
 export const tokenUserUrl = `${apiUrl}foodie/token/`;
 export const refreshUserTokenUrl = `${apiUrl}foodie/token/refresh/`;
 export const placeOrderUrl = `${apiUrl}foodie/order/`;
+export const reviewOrderUrl = `${apiUrl}foodie/order/review/`;
 export const previousOrderUrl = `${apiUrl}foodie/orders/`;
 export const inprogressOrderUrl = `${apiUrl}foodie/orders/inprogress`;
 export const menuUrl = `${apiUrl}foodie/menu/`;
@@ -62,7 +63,7 @@ export const loginRequest = async (data) => {
         'Content-Type': 'application/json'
       },
       body: postData
-    })
+    });
   } catch (error) {
     throw error;
   }
@@ -93,6 +94,25 @@ export const getUserToken = async (data) => {
       },
       body: postData
     })
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const reviewOrder = async (data) => {
+  const postData = JSON.stringify(data)
+  // console.log("[Info] sending review for order with data: ", postData);
+  try {
+    const token = await SecureStore.getItemAsync('token');
+
+    return fetch(reviewOrderUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body:postData,
+    });
   } catch (error) {
     throw error;
   }

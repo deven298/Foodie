@@ -1,3 +1,9 @@
+
+export function formatISODateToNormalDate(isoDate) {
+  const date = new Date(isoDate);
+  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+};
+
 export function shuffleArray(array) {
     let currentIndex = array.length,
       randomIndex;

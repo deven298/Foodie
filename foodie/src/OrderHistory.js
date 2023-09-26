@@ -1,11 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-
-const formatISODateToNormalDate = (isoDate) => {
-    const date = new Date(isoDate);
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-};
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { formatISODateToNormalDate } from './utils';
 
 const getStatusIcon = (status) => {
     switch (status) {
@@ -21,16 +18,24 @@ const getStatusIcon = (status) => {
         return 'question-circle';
     }
   };
-const OrderHistoryModal = ({ isVisible, orders, onClose }) => {
-  if (!isVisible) return null;
+const OrderHistory = ({ route, navigation }) => {
+  const { orders } = route.params;
+  if (!orders) return null;
+  
+  // const navigation = useNavigation();
+
+  const handleWriteReview = (order) => {
+    // console.log("navigating to order review", order, navigation);
+    // Navigate to the review submission screen and pass the order information
+    navigation.navigate('OrderReview', { order });
+  };
+
+  const onClose = () => {
+    navigation.goBack();
+  };
   
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={isVisible}
-      onRequestClose={onClose}
-    >
+    <SafeAreaView style={styles.container}>
       <View style={styles.modalContainer}>
         <View style={styles.modalContent}>
           <Text style={styles.modalTitle}>Order History</Text>
@@ -66,6 +71,9 @@ const OrderHistoryModal = ({ isVisible, orders, onClose }) => {
                     <Text style={styles.orderTotalPrice}>
                     Total: ${item.total_price}
                     </Text>
+                    <TouchableOpacity onPress={() => handleWriteReview(item)}>
+                      <Text style={styles.writeReviewButton}>Write a Review</Text>
+                    </TouchableOpacity>
                 </View>
                 ))}
             </ScrollView>
@@ -74,12 +82,16 @@ const OrderHistoryModal = ({ isVisible, orders, onClose }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </Modal>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-    modalContainer: {
+      container: {
+        flex: 1,
+        backgroundColor: 'white',
+      },
+      modalContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -147,6 +159,12 @@ const styles = StyleSheet.create({
       scrollView: {
         width: '100%',
       },
+      writeReviewButton: {
+        color: 'orange',
+        fontWeight: 'bold',
+        fontSize: 14,
+        marginTop: 10,
+      },
 });
 
-export default OrderHistoryModal;
+export default OrderHistory;

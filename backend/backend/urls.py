@@ -29,6 +29,7 @@ from foodie.views import (
     UserLogoutView,
     place_order,
     user_orders,
+    user_order_review,
     non_delivered_orders,
 )
 
@@ -43,5 +44,6 @@ urlpatterns = [
     path("foodie/token/verify/", TokenVerifyView.as_view(), name="token_verify"),
     path("foodie/order/", place_order, name="order"),
     path("foodie/orders/", user_orders, name="orders"),
-    path("foodie/orders/inprogress", non_delivered_orders, name="orders_in_progress"),
+    path("foodie/order/review/", user_order_review, name="review_order"),
+    # path("foodie/orders/inprogress", non_delivered_orders, name="orders_in_progress"),
 ]

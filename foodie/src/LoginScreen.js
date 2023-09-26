@@ -23,7 +23,12 @@ const LoginScreen = ({ navigation }) => {
             const loginResponse = await loginRequest({
               'username': username.toLowerCase(),
               'password': password
-            }).then((res) => res.json())
+            }).then((res) => {
+              if (res.ok) {
+                return res.json();
+              }
+              return;
+            }); 
 
             const tokenResponse = await getUserToken({
               'username': username.toLowerCase(),
@@ -32,10 +37,15 @@ const LoginScreen = ({ navigation }) => {
 
             Promise.all([loginResponse, tokenResponse])
             .then(([user, token]) => {
-              console.log("[Info] user data", user);
-              setToken(token.access);
-              login(user);
-              navigation.navigate('Home');
+              if (user) {
+                console.log("[Info] user data", user);
+                setToken(token.access);
+                login(user);
+                navigation.navigate('Home');
+              } else {
+                toggleModal();
+                console.log("[INFO] failed to authenticate user");
+              }
             })
             .catch((error) => {
               console.log("[ERROR] error posting", error);

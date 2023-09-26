@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createSwitchNavigator } from '@react-navigation/compat';
 import LandingScreen from './LandingScreen';
 import RegisterUser from './RegisterUser';
 import LoginScreen from './LoginScreen';
 import HomeScreen from './HomeScreen';
 import { useAuth } from './auth';
+import OrderHistory from './OrderHistory';
+import OrderReview from './OrderReview';
 
 const Stack = createStackNavigator();
 // const Switch = createSwitchNavigator();
@@ -45,12 +46,24 @@ const Stack = createStackNavigator();
             </>
           ) : (
             <>
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ headerShown: false }}
-      />
-    </>
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="Orders"
+              component={OrderHistory}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="OrderReview"
+              component={OrderReview}
+              options={{ headerShown: false }}
+            />
+            </>
           )}
         </ Stack.Navigator>
       </NavigationContainer>

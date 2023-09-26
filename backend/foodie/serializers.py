@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
-from .models import MenuItem, Order
+from .models import MenuItem, Order, Review
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -38,12 +38,28 @@ class MenuItemSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class ReviewOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        # fields = "__all__"
+        fields = ("id", "user", "rating", "text", "created_at")
+
+
 class OrderSerializer(serializers.ModelSerializer):
     items = MenuItemSerializer(many=True, read_only=True)
+    reviews = ReviewOrderSerializer(many=True)
 
     class Meta:
         model = Order
-        fields = ("id", "total_price", "order_date", "status", "user", "items")
+        fields = (
+            "id",
+            "total_price",
+            "order_date",
+            "status",
+            "user",
+            "items",
+            "reviews",
+        )
 
 
 class PlaceOrderSerializer(serializers.ModelSerializer):
