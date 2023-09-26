@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { 
+  View, 
+  Text, 
+  ScrollView, 
+  Image, 
+  StyleSheet, 
+  TouchableOpacity,
+  TextInput
+} from 'react-native';
 import { fetchMenuItems, logoutPost, placeOrder, getOrders } from './api';
 import { useAuth } from './auth';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -11,7 +19,9 @@ import OrderHistoryModal from './OrderHistoryModal';
 
 const HomeScreen = ({ navigation }) => {
   const [menuItems, setMenuItems] = useState([]);
+  const [allMenuItems, setAllMenuItems] = useState([]);
   const { user, isLoggedIn, logout } = useAuth();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const [cartVisible, setCartVisible] = useState(false);
   const [cart, setCart] = useState({});
@@ -66,12 +76,26 @@ const HomeScreen = ({ navigation }) => {
     }
   };
 
+  const searchMenu = (query) => {
+    if (query == '') {
+      setMenuItems(allMenuItems);
+    } else {
+      // Filter menu items based on the search query
+      const filteredMenuItems = menuItems.filter((item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      // console.log(filteredMenuItems)
+      setMenuItems(shuffleArray(filteredMenuItems));
+    }
+  };
+
   const checkUser = async () => {
     if (isLoggedIn) {
       try {
         const menu_items = await fetchMenuItems();
         // console.log(menu_items);
-        setMenuItems(shuffleArray(menu_items));
+        setMenuItems(menu_items);
+        setAllMenuItems(menu_items);
       } catch (error) {
         console.log(error);
       }
@@ -136,6 +160,15 @@ const HomeScreen = ({ navigation }) => {
           <FontAwesome5 name="list" size={24} color="black" />
         </TouchableOpacity>
       </View>
+      <TextInput
+          style={styles.searchInput}
+          placeholder="Search for food.."
+          value={searchQuery}
+          onChangeText={(text) => {
+            setSearchQuery(text);
+            searchMenu(text);
+          }}
+        />
       <ScrollView>
         {menuItems.map((item) => (
           <View key={item.id} style={styles.menuItem}>
@@ -185,6 +218,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between', 
     alignItems: 'center'
+  },
+  searchInput: {
+    height: 40,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    paddingLeft: 10,
+    marginTop: 16,
   },
   title: {
     fontSize: 24,

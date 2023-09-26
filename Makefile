@@ -19,3 +19,4 @@ build_backend:
 run_foodie_local:
 	@echo "Running Foodie locally"
 	@cd foodie && react-native run-ios
+	# @cd foodie && expo start
