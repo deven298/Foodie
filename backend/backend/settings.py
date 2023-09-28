@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,11 +44,21 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "foodie",
+    "channels",
+    "foodie_socket",  # socket app for Foodie consumers
     "rest_framework.authtoken",
     "django_extensions",
     "rest_framework_jwt",
     "rest_framework_simplejwt",
 ]
+# socket for foodie consumers
+ASGI_APPLICATION = "foodie_socket.routing.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

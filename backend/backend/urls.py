@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -30,7 +30,7 @@ from foodie.views import (
     place_order,
     user_orders,
     user_order_review,
-    non_delivered_orders,
+    # non_delivered_orders,
 )
 
 urlpatterns = [
@@ -45,5 +45,6 @@ urlpatterns = [
     path("foodie/order/", place_order, name="order"),
     path("foodie/orders/", user_orders, name="orders"),
     path("foodie/order/review/", user_order_review, name="review_order"),
+    path("foodies/", include("foodie_socket.urls"), name="foodie_socket"),
     # path("foodie/orders/inprogress", non_delivered_orders, name="orders_in_progress"),
 ]

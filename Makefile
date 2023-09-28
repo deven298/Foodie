@@ -14,6 +14,7 @@ build_backend_migrations:
 
 build_backend:
 	black backend/
+	cd backend && export DJANGO_SETTINGS_MODULE=foodie.settings
 	cd backend && python manage.py runserver
 
 run_foodie_local:

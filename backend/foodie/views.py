@@ -38,6 +38,7 @@ def user_orders(request):
     print("[INFO] orders for user", uid)
     return Response(serializer.data, status=200)
 
+
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def user_order_review(request):

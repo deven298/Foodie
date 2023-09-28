@@ -1,5 +1,5 @@
 
-import { apiUrl } from "../config";
+import { apiUrl, socketUrl } from "../config";
 import * as SecureStore from 'expo-secure-store';
 
 // DB constants
@@ -13,6 +13,8 @@ export const reviewOrderUrl = `${apiUrl}foodie/order/review/`;
 export const previousOrderUrl = `${apiUrl}foodie/orders/`;
 export const inprogressOrderUrl = `${apiUrl}foodie/orders/inprogress`;
 export const menuUrl = `${apiUrl}foodie/menu/`;
+
+export const deliveryUrl = `${socketUrl}foodies/delivery/`;
 
 export const fetchMenuItems = async () => {
   try {
@@ -157,3 +159,35 @@ export const getOrders = async () => {
     throw error;
   }
 };
+
+
+// NOTE: get order delivery updates
+// export const getOrderDeliveryStatus = (uid, order_id, onStatusReceived, onError) => {
+//   try {
+//     const foodieSocket = new WebSocket(deliveryUrl);
+//     const request = {
+//       type: 'delivery_status_request',
+//       user_id: uid,
+//       order_id: order_id,
+//     };
+
+//     foodieSocket.send(JSON.stringify(request));
+//     foodieSocket.onmessage = (e) => {
+//       const message = JSON.parse(e.data);
+//       if (message.type === 'delivery_status') {
+//         const deliveryStatus = message.status;
+//         console.log('Delivery Status:', deliveryStatus);
+//         onStatusReceived(deliveryStatus);
+//       } else if (message.type === 'delivery_status_failed') {
+//         console.error('Delivery Status Request Failed');
+//         onError('Delivery Status Request Failed');
+//       }
+//       foodieSocket.close();
+//     };
+//     // Don't forget to close the WebSocket connection when you're done
+//     // ws.close();
+//   } catch (error) {
+//     console.error('[Error] delivery status update', error);
+//     onError(error.message);
+//   }
+// };
